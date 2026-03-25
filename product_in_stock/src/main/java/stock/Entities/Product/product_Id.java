@@ -2,10 +2,12 @@ package stock.Entities.Product;
 
 public class Product_Id {
 
-    public String name;
-    public double price;
-    public int quantity;
+    /* Encapsulation */
+    private String name;
+    private double price;
+    private int quantity;
 
+    /* Constructors */
     public Product_Id(){
     }
 
@@ -20,6 +22,28 @@ public class Product_Id {
         this.price = price;
     }
 
+    /* Getters and Setters */
+   public String getName(){
+    return name;
+   }
+
+   public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    /* Data treatment */
     public double totalValueInStock(){
         
         return quantity * price;
@@ -49,4 +73,6 @@ public class Product_Id {
             + String.format("%.2f", totalValueInStock());
 
     }
+
+    
 }

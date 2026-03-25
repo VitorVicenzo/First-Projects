@@ -15,15 +15,14 @@ public class Main {
         String name = sc.nextLine();
         System.out.print("Price: ");
         double price = sc.nextDouble();
-        System.out.print("Quantity in stock: ");
-        int quantity = sc.nextInt();
-        Product_Id product = new Product_Id(name, price, quantity);
+        
+        Product_Id product = new Product_Id(name, price);
 
         System.out.println();
         System.out.println("Product data: " + product);
         
         System.out.println("Enter the number of products to be added in stock: ");
-        quantity = sc.nextInt();
+        int quantity = sc.nextInt();
         product.addProducts(quantity);
 
         System.out.println();

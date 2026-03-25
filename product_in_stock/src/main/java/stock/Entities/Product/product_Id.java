@@ -1,10 +1,16 @@
 package stock.Entities.Product;
 
-public class product_Id {
+public class Product_Id {
 
     public String name;
     public double price;
     public int quantity;
+
+    public Product_Id(String name, double price, int quantity){
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
 
     public double totalValueInStock(){
         

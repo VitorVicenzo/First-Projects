@@ -6,7 +6,7 @@ import main.entities.Bank;
 import main.entities.Client;
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         
         //Abertura de Scanner e definição do ponto decimal.
         Locale.setDefault(Locale.US);
@@ -15,20 +15,21 @@ public class App {
         //Declaração de variáveis.
         String name = null;
         int operation = 0, password = 0, client_Password = 0, number_Account = 0;
-        double  withdraw, deposit = 0.0, balance = 0.0;
+        double  withdraw, deposit = 0.0;
         
         Client client = new Client(name, password, number_Account);
         Bank bank_Teller = new Bank();
 
         //Interface do usuário + Looping.
-        while (operation != 4){
+        while (operation != 5){
+            System.out.println();
             System.out.println("------ WELCOME TO THE CENTRAL BANK ------");
             System.out.println("1. First access.");
             System.out.println("2. Deposit.");
             System.out.println("3. Balance verify.");
             System.out.println("4. Withdraw.");
             System.out.println("5. Exit.");
-            System.out.println("Write the number of the operation desired: ");
+            System.out.print("Write the number of the operation desired: ");
             operation = sc.nextInt();
             
 
@@ -38,21 +39,25 @@ public class App {
                 case 1 :
                    
                     /*First access. */
-                    System.out.println("As your first access write your name, number for your account and your personal password: ");
+                    System.out.print("As your first access, write your name: ");
                     name = sc.nextLine();
+                    sc.nextLine();
                     client.setName(name);
-
-                    System.out.println();
+                
+                    System.out.print("Write an id number for your account: ");
                     number_Account = sc.nextInt();
                     client.setNumber_Account(number_Account);
 
-                    System.out.println();
+                    System.out.print("Write your personal password: ");
                     client_Password = sc.nextInt();
                     client.setPassword(client_Password);
 
+                    System.out.println("Thanks for register in our bank! We are grateful for having you here!");
+                    System.out.println();
+
                     break;
 
-                    //DEPÓSITO DE DINHEIRO.
+                    /* Password manager. */
                 case 2 :
                     
                     System.out.println("Write your password: ");
@@ -64,7 +69,7 @@ public class App {
                         password = sc.nextInt();
                     }
                     
-                    //DEPÓSITO CONDICIONAL.
+                    /* Deposit */
                     System.out.println("How much do you want to deposit? ");
                     deposit = sc.nextDouble();
                     bank_Teller.setDeposit(deposit);
@@ -73,9 +78,10 @@ public class App {
 
                    break;
                
-                //VERIFICAR SALDO.
+                /* Balance verify. */
                 case 3 :
-                    System.out.printf("Your balance is: &.2f%n", bank_Teller.getBalance());  
+                    System.out.printf("Your balance is: " + bank_Teller.getBalance());  
+                    System.out.println();
                     break;
 
                 case 4 :

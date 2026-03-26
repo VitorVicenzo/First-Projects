@@ -25,12 +25,12 @@ public class Bank {
         this.withdraw = withdraw;
     }
 
-    public double client_Deposit(){
-        return balance + deposit;
+    public void client_Deposit(){
+        balance += deposit;
     }
 
-    public double client_Withdraw(){
-        return balance - (withdraw + withdraw_Tax);
+    public void client_Withdraw(){
+        balance -= (withdraw + withdraw_Tax);
     }
     
 }

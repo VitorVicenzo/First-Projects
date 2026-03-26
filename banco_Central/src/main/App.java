@@ -8,19 +8,19 @@ import main.entities.Client;
 public class App {
     public static void main(String[] args) {
         
-        //Abertura de Scanner e definição do ponto decimal.
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        //Declaração de variáveis.
+        //Variable declaration
         String name = null;
         int operation = 0, password = 0, client_Password = 0, number_Account = 0;
         double  withdraw, deposit = 0.0;
         
+        /* Constructor of a reference type */
         Client client = new Client(name, password, number_Account);
         Bank bank_Teller = new Bank();
 
-        //Interface do usuário + Looping.
+        //User interface + Looping.
         while (operation != 5){
             System.out.println();
             System.out.println("------ WELCOME TO THE CENTRAL BANK ------");
@@ -81,7 +81,7 @@ public class App {
                
                 /* Balance verify. */
                 case 3 :
-                    System.out.printf("Your balance is: " + bank_Teller.getBalance());  
+                    System.out.printf("Your balance is: $" + bank_Teller.getBalance());  
                     System.out.println();
                     break;
 
@@ -105,10 +105,7 @@ public class App {
                     System.out.println("Your transaction was successfully!");
 
                     break;
-                    
             }
-
-            
         }
         sc.close();
     }

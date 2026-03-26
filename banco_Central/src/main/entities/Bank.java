@@ -2,11 +2,13 @@ package main.entities;
 
 public class Bank {
 
+    /* Encapsulation */
     private final double withdraw_Tax = 5;
     private double deposit;
     private double withdraw;
     private double balance;
     
+    /* Getters and Setters */
     public double getBalance() {
         return balance;
     }
@@ -25,6 +27,7 @@ public class Bank {
         this.withdraw = withdraw;
     }
 
+    /* Operations */
     public void client_Deposit(){
         balance += deposit;
     }

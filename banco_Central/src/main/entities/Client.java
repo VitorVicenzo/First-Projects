@@ -2,16 +2,19 @@ package main.entities;
 
 public class Client {
 
+    /*Encapsulation */
     private String name;
     private int password;
     private int number_Account;
     
+    /* Constructor */
     public Client(String name, int password, int number_Account){
         this.name = name;
         this.password = password;
         this.number_Account = number_Account;
     }
     
+    /* Getters and Setters */
     public String getName() {
         return name;
     }
@@ -25,7 +28,7 @@ public class Client {
     public void setPassword(int password) {
         this.password = password;
     }
-    
+
     public int getNumber_Account() {
         return number_Account;
     }

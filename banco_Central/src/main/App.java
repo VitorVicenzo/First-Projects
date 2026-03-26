@@ -3,6 +3,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import main.entities.Bank;
+import main.entities.Client;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -13,9 +14,11 @@ public class App {
 
         //Declaração de variáveis.
         String name = null;
-        int operation = 0, password = 0, number_Account = 0;
-        double  valor_Saque, valor_Deposito = 0.0, total_Conta = 0.0;
+        int operation = 0, password = 0, client_Password = 0, number_Account = 0;
+        double  withdraw, deposit = 0.0, balance = 0.0;
         
+        Client client = new Client(name, password, number_Account);
+        Bank bank_Teller = new Bank();
 
         //Interface do usuário + Looping.
         while (operation != 4){
@@ -28,55 +31,58 @@ public class App {
             System.out.println("Write the number of the operation desired: ");
             operation = sc.nextInt();
             
+
             switch (operation) {
                 
-                //SAQUE DE DINHEIRO.
+                
                 case 1 :
                    
                     /*First access. */
                     System.out.println("As your first access write your name, number for your account and your personal password: ");
                     name = sc.nextLine();
-                    
+                    client.setName(name);
 
                     System.out.println();
                     number_Account = sc.nextInt();
-                    
+                    client.setNumber_Account(number_Account);
 
                     System.out.println();
-                    password = sc.nextInt();
+                    client_Password = sc.nextInt();
+                    client.setPassword(client_Password);
 
                     break;
 
                     //DEPÓSITO DE DINHEIRO.
                 case 2 :
-                    //SENHA.
-                    System.out.println("Digite sua password padrão  (1235): ");
+                    
+                    System.out.println("Write your password: ");
                     password = sc.nextInt();
-                    while (password != 1235){
-                        System.out.println("Você errou a password!");
-                        System.out.println("Digite sua password padrão (1235): ");
+                    
+                    while (password != client.getPassword()){
+                        System.out.println("Wrong password!");
+                        System.out.println("Write your password: ");
                         password = sc.nextInt();
                     }
+                    
                     //DEPÓSITO CONDICIONAL.
-                    System.out.println("Quanto deseja depositar ?");
-                    valor_Deposito = sc.nextDouble();
-                    if (valor_Deposito <= 0) {
-                        System.out.println("Você não pode fazer um depósito com esse valor!");
-                    } else {
-                        System.out.println("Depósito efetuado com sucesso!");
-                        total_Conta = total_Conta + valor_Deposito;
-                    }
+                    System.out.println("How much do you want to deposit? ");
+                    deposit = sc.nextDouble();
+                    bank_Teller.setDeposit(deposit);
+                    bank_Teller.client_Deposit();
+                    System.out.println("Your transaction was successfully!");
+
                    break;
                
                 //VERIFICAR SALDO.
                 case 3 :
-                    System.out.println("Seu saldo é: " + total_Conta);  
+                    System.out.printf("Your balance is: &.2f%n", bank_Teller.getBalance());  
                     break;
 
                 case 4 :
                     System.out.println("");
             }
 
+            
         }
         sc.close();
     }

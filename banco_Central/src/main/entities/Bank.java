@@ -5,6 +5,11 @@ public class Bank {
     private final double withdraw_Tax = 5;
     private double deposit;
     private double withdraw;
+    private double balance;
+    
+    public double getBalance() {
+        return balance;
+    }
 
     public double getDeposit() {
         return deposit;
@@ -20,6 +25,13 @@ public class Bank {
         this.withdraw = withdraw;
     }
 
+    public double client_Deposit(){
+        return balance + deposit;
+    }
+
+    public double client_Withdraw(){
+        return balance - (withdraw + withdraw_Tax);
+    }
     
 }
  

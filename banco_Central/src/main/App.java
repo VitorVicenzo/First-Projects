@@ -1,7 +1,6 @@
 package main;
 import java.util.Locale;
 import java.util.Scanner;
-
 import main.entities.Bank;
 import main.entities.Client;
 

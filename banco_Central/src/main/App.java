@@ -2,6 +2,8 @@ package main;
 import java.util.Locale;
 import java.util.Scanner;
 
+import main.entities.Bank;
+
 public class App {
     public static void main(String[] args) throws Exception {
         
@@ -10,31 +12,31 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         //Declaração de variáveis.
-        int operation = 0, senha = 0;
+        String name = null;
+        int operation = 0, password = 0, number_Account = 0;
         double  valor_Saque, valor_Deposito = 0.0, total_Conta = 0.0;
-        
+        Bank client = new Bank(name, number_Account, password);
+
         //Interface do usuário + Looping.
         while (operation != 4){
-            System.out.println("------ BEM-VINDO AO BANCO CENTRAL ------");
-            System.out.println("1. Sacar dinheiro.");
-            System.out.println("2. Depósito de dinheiro.");
-            System.out.println("3. Verificação de saldo.");
-            System.out.println("4. Sair.");
-            System.out.println("Digite o número da operação desejada:");
+            System.out.println("------ WELCOME TO THE CENTRAL BANK ------");
+            System.out.println("1. First access.");
+            System.out.println("2. Deposit.");
+            System.out.println("3. Balance verify.");
+            System.out.println("4. Withdraw.");
+            System.out.println("5. Exit.");
+            System.out.println("Write the number of the operation desired: ");
             operation = sc.nextInt();
             
             switch (operation) {
                 
                 //SAQUE DE DINHEIRO.
                 case 1 :
+                   
                     //SENHA.
-                    System.out.println("Digite sua senha padrão (1234): ");
-                    senha = sc.nextInt();
-                    while (senha != 1234){
-                        System.out.println("Você errou a senha!");
-                        System.out.println("Digite sua senha padrão (1234): ");
-                        senha = sc.nextInt();
-                    }
+                    System.out.println("As your first access write your password: ");
+                    password = sc.nextInt();
+                    
                     //SAQUE CONDICIONAL.
                     System.out.println("Quanto deseja sacar ?");
                     valor_Saque = sc.nextDouble();
@@ -51,12 +53,12 @@ public class App {
                     //DEPÓSITO DE DINHEIRO.
                 case 2 :
                     //SENHA.
-                    System.out.println("Digite sua senha padrão  (1235): ");
-                    senha = sc.nextInt();
-                    while (senha != 1235){
-                        System.out.println("Você errou a senha!");
-                        System.out.println("Digite sua senha padrão (1235): ");
-                        senha = sc.nextInt();
+                    System.out.println("Digite sua password padrão  (1235): ");
+                    password = sc.nextInt();
+                    while (password != 1235){
+                        System.out.println("Você errou a password!");
+                        System.out.println("Digite sua password padrão (1235): ");
+                        password = sc.nextInt();
                     }
                     //DEPÓSITO CONDICIONAL.
                     System.out.println("Quanto deseja depositar ?");
@@ -73,6 +75,9 @@ public class App {
                 case 3 :
                     System.out.println("Seu saldo é: " + total_Conta);  
                     break;
+
+                case 4 :
+                    System.out.println("");
             }
 
         }

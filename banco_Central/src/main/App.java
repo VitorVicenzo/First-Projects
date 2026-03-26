@@ -15,7 +15,7 @@ public class App {
         String name = null;
         int operation = 0, password = 0, number_Account = 0;
         double  valor_Saque, valor_Deposito = 0.0, total_Conta = 0.0;
-        Bank client = new Bank(name, number_Account, password);
+        
 
         //Interface do usuário + Looping.
         while (operation != 4){
@@ -33,21 +33,18 @@ public class App {
                 //SAQUE DE DINHEIRO.
                 case 1 :
                    
-                    //SENHA.
-                    System.out.println("As your first access write your password: ");
-                    password = sc.nextInt();
+                    /*First access. */
+                    System.out.println("As your first access write your name, number for your account and your personal password: ");
+                    name = sc.nextLine();
                     
-                    //SAQUE CONDICIONAL.
-                    System.out.println("Quanto deseja sacar ?");
-                    valor_Saque = sc.nextDouble();
-                    if (valor_Saque > total_Conta) {
-                        System.out.println("Você não tem saldo suficiente! Faça um depósito primeiro");
-                        System.out.println("Esse é o seu saldo: " + total_Conta);
-                        operation = 0;
-                    } else {
-                        System.out.println("Saque efetuado com sucesso!");
-                        total_Conta = total_Conta - valor_Saque;
-                    }
+
+                    System.out.println();
+                    number_Account = sc.nextInt();
+                    
+
+                    System.out.println();
+                    password = sc.nextInt();
+
                     break;
 
                     //DEPÓSITO DE DINHEIRO.

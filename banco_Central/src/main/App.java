@@ -31,7 +31,7 @@ public class App {
             System.out.println("5. Exit.");
             System.out.print("Write the number of the operation desired: ");
             operation = sc.nextInt();
-            
+            System.out.println();
 
             switch (operation) {
                 
@@ -57,9 +57,10 @@ public class App {
 
                     break;
 
-                    /* Password manager. */
+                    
                 case 2 :
                     
+                    /* Password manager. */
                     System.out.println("Write your password: ");
                     password = sc.nextInt();
                     
@@ -85,7 +86,26 @@ public class App {
                     break;
 
                 case 4 :
-                    System.out.println("");
+
+                    /* Password manager. */
+                    System.out.println("Write your password: ");
+                    password = sc.nextInt();
+                    
+                    while (password != client.getPassword()){
+                        System.out.println("Wrong password!");
+                        System.out.println("Write your password: ");
+                        password = sc.nextInt();
+                    }
+
+                    /* Withdraw with 5$ dollar tax. */
+                    System.out.println("How much do you want to withdraw? ");
+                    withdraw = sc.nextDouble();
+                    bank_Teller.setWithdraw(withdraw);
+                    bank_Teller.client_Withdraw();
+                    System.out.println("Your transaction was successfully!");
+
+                    break;
+                    
             }
 
             
